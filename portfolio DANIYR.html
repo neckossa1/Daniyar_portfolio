@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Данияр — графический дизайнер</title>
+<meta name="description" content="Портфолио Данияра — графического дизайнера. 6 лет опыта, 50+ проектов: брендинг, инфографика, айдентика, digital-дизайн.">
+<meta property="og:title" content="Данияр — графический дизайнер">
+<meta property="og:description" content="Портфолио работ: брендинг, инфографика, айдентика, digital-дизайн.">
+<meta property="og:image" content="https://i.postimg.cc/KYw6RDxd/IMG-20261108-044050-442.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0b0f;
+  --bg2:#13131a;
+  --card:#16161f;
+  --line:rgba(255,255,255,.08);
+  --text:#f2f2f5;
+  --muted:#9a9aab;
+  --a1:#7c5cff;
+  --a2:#ff4d8d;
+  --a3:#ffb84d;
+  --grad:linear-gradient(120deg,var(--a1),var(--a2) 60%,var(--a3));
+  --r:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:'Manrope',system-ui,sans-serif;line-height:1.6;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1180px,92%);margin:0 auto}
+h1,h2,h3{font-family:'Unbounded',sans-serif;line-height:1.1}
+
+/* фон-свечение */
+.glow{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.glow i{position:absolute;border-radius:50%;filter:blur(110px);opacity:.28}
+.glow i:nth-child(1){width:480px;height:480px;background:var(--a1);top:-120px;left:-100px}
+.glow i:nth-child(2){width:420px;height:420px;background:var(--a2);top:35%;right:-140px}
+.glow i:nth-child(3){width:380px;height:380px;background:var(--a3);bottom:-140px;left:25%;opacity:.16}
+main,header,footer{position:relative;z-index:1}
+
+/* навигация */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  backdrop-filter:blur(14px);background:rgba(11,11,15,.6);
+  border-bottom:1px solid var(--line);
+}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:'Unbounded';font-weight:800;font-size:1.15rem;letter-spacing:-.02em}
+.logo span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.menu{display:flex;gap:30px;font-size:.92rem;color:var(--muted)}
+.menu a{transition:.25s}
+.menu a:hover{color:var(--text)}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 28px;border-radius:100px;font-weight:700;font-size:.95rem;
+  border:1px solid var(--line);transition:.3s;cursor:pointer;
+}
+.btn.primary{background:var(--grad);border:none;color:#fff;box-shadow:0 10px 40px -10px var(--a2)}
+.btn.primary:hover{transform:translateY(-3px);box-shadow:0 18px 50px -10px var(--a2)}
+.btn.ghost:hover{background:rgba(255,255,255,.07);transform:translateY(-3px)}
+.nav-btn{padding:10px 20px;font-size:.85rem}
+.burger{display:none;background:none;border:none;color:var(--text);font-size:1.6rem;cursor:pointer}
+
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 70px}
+.hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center}
+.tag{
+  display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:100px;
+  border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:.82rem;color:var(--muted);margin-bottom:26px;
+}
+.tag b{width:8px;height:8px;border-radius:50%;background:#37e08a;box-shadow:0 0 12px #37e08a;animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.35}}
+.hero h1{font-size:clamp(2.4rem,6vw,4.9rem);font-weight:800;letter-spacing:-.04em;margin-bottom:24px}
+.hero h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--muted);font-size:1.12rem;max-width:520px;margin-bottom:38px}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-visual{position:relative;aspect-ratio:4/5;max-width:420px;margin-left:auto;width:100%}
+.hero-visual .frame{
+  position:absolute;inset:0;border-radius:30px;overflow:hidden;border:1px solid var(--line);
+  transform:rotate(3deg);transition:.5s;box-shadow:0 40px 80px -30px rgba(124,92,255,.5);
+}
+.hero-visual:hover .frame{transform:rotate(0)}
+.hero-visual img{width:100%;height:100%;object-fit:cover}
+.hero-visual .chip{
+  position:absolute;z-index:2;padding:12px 18px;border-radius:16px;font-size:.85rem;font-weight:700;
+  background:rgba(22,22,31,.85);backdrop-filter:blur(10px);border:1px solid var(--line);
+  animation:float 5s ease-in-out infinite;
+}
+.chip.c1{left:-30px;top:12%}
+.chip.c2{right:-20px;bottom:14%;animation-delay:-2.5s}
+@keyframes float{50%{transform:translateY(-12px)}}
+
+/* бегущая строка */
+.marquee{border-block:1px solid var(--line);overflow:hidden;padding:20px 0;background:rgba(255,255,255,.02)}
+.marquee div{display:flex;gap:50px;width:max-content;animation:run 28s linear infinite;
+  font-family:'Unbounded';font-size:1.2rem;font-weight:600;color:var(--muted);white-space:nowrap}
+.marquee span::after{content:"✦";margin-left:50px;color:var(--a2)}
+@keyframes run{to{transform:translateX(-50%)}}
+
+section{padding:110px 0}
+.sec-head{margin-bottom:56px}
+.sec-head small{color:var(--a2);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem}
+.sec-head h2{font-size:clamp(1.9rem,4vw,3rem);margin-top:12px;letter-spacing:-.03em}
+
+/* обо мне */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-grid p{color:var(--muted);margin-bottom:18px;font-size:1.05rem}
+.about-grid p strong{color:var(--text)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px;transition:.3s}
+.stat:hover{transform:translateY(-6px);border-color:rgba(255,77,141,.4)}
+.stat b{display:block;font-family:'Unbounded';font-size:2.5rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{color:var(--muted);font-size:.9rem}
+
+/* навыки */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.skill{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:32px;
+  position:relative;overflow:hidden;transition:.35s;
+}
+.skill::before{content:"";position:absolute;inset:0;background:var(--grad);opacity:0;transition:.35s}
+.skill:hover{transform:translateY(-8px);border-color:transparent}
+.skill:hover::before{opacity:.12}
+.skill>*{position:relative}
+.skill .ico{font-size:2rem;margin-bottom:18px}
+.skill h3{font-size:1.05rem;margin-bottom:10px}
+.skill p{color:var(--muted);font-size:.93rem}
+.tools{margin-top:50px;display:flex;flex-wrap:wrap;gap:12px}
+.tools span{
+  padding:11px 22px;border-radius:100px;border:1px solid var(--line);background:var(--bg2);
+  font-weight:700;font-size:.88rem;transition:.25s;
+}
+.tools span:hover{background:var(--grad);border-color:transparent;transform:translateY(-3px)}
+
+/* работы */
+.gallery{columns:3;column-gap:20px}
+.work{
+  break-inside:avoid;margin-bottom:20px;border-radius:var(--r);overflow:hidden;position:relative;
+  cursor:zoom-in;border:1px solid var(--line);background:var(--card);
+  opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s,border-color .3s;
+}
+.work.show{opacity:1;transform:none}
+.work img{width:100%;height:auto;transition:transform .6s}
+.work:hover{border-color:rgba(255,77,141,.5)}
+.work:hover img{transform:scale(1.05)}
+.work::after{
+  content:"Открыть ↗";position:absolute;left:14px;bottom:14px;padding:8px 16px;border-radius:100px;
+  background:rgba(11,11,15,.8);backdrop-filter:blur(8px);font-size:.8rem;font-weight:700;
+  opacity:0;transform:translateY(10px);transition:.3s;
+}
+.work:hover::after{opacity:1;transform:none}
+.more{text-align:center;margin-top:40px}
+
+/* процесс */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
+.step{padding:30px;border-radius:var(--r);border:1px solid var(--line);background:var(--card);counter-increment:s}
+.step::before{content:"0" counter(s);font-family:'Unbounded';font-size:2rem;font-weight:800;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.step h3{font-size:1rem;margin:14px 0 8px}
+.step p{color:var(--muted);font-size:.9rem}
+
+/* контакты */
+.contact-box{
+  text-align:center;padding:80px 30px;border-radius:36px;position:relative;overflow:hidden;
+  background:var(--card);border:1px solid var(--line);
+}
+.contact-box::before{content:"";position:absolute;inset:-50%;background:conic-gradient(from 0deg,transparent,var(--a1),transparent 30%,var(--a2),transparent 60%);
+  opacity:.12;animation:spin 14s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.contact-box>*{position:relative}
+.contact-box h2{font-size:clamp(2rem,5vw,3.6rem);letter-spacing:-.03em;margin-bottom:18px}
+.contact-box p{color:var(--muted);max-width:480px;margin:0 auto 36px}
+.contact-box .cta{justify-content:center}
+
+footer{padding:40px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+/* лайтбокс */
+.lb{
+  position:fixed;inset:0;z-index:100;background:rgba(5,5,8,.94);backdrop-filter:blur(10px);
+  display:none;align-items:center;justify-content:center;padding:30px;
+}
+.lb.open{display:flex}
+.lb img{max-width:100%;max-height:88vh;border-radius:14px;box-shadow:0 30px 100px rgba(0,0,0,.6)}
+.lb button{
+  position:absolute;background:rgba(255,255,255,.1);border:none;color:#fff;width:50px;height:50px;
+  border-radius:50%;font-size:1.4rem;cursor:pointer;transition:.2s;
+}
+.lb button:hover{background:var(--a2)}
+.lb .x{top:24px;right:24px}
+.lb .p{left:24px;top:50%}
+.lb .n{right:24px;top:50%}
+.lb .cnt{position:absolute;bottom:22px;color:var(--muted);font-size:.9rem}
+
+/* адаптив */
+@media(max-width:960px){
+  .hero .wrap,.about-grid{grid-template-columns:1fr}
+  .hero-visual{margin:20px auto 0;max-width:340px}
+  .skills-grid{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .gallery{columns:2}
+}
+@media(max-width:640px){
+  .menu{
+    position:absolute;top:68px;left:0;right:0;flex-direction:column;gap:0;
+    background:rgba(11,11,15,.97);border-bottom:1px solid var(--line);display:none;
+  }
+  .menu.open{display:flex}
+  .menu a{padding:18px 5%;border-top:1px solid var(--line)}
+  .burger{display:block}
+  .nav-btn{display:none}
+  section{padding:80px 0}
+  .skills-grid,.steps,.stats{grid-template-columns:1fr}
+  .gallery{columns:1}
+  .chip.c1{left:-8px}.chip.c2{right:-8px}
+  .lb .p,.lb .n{top:auto;bottom:16px}
+}
+</style>
+</head>
+<body>
+
+<div class="glow"><i></i><i></i><i></i></div>
+
+<nav>
+  <div class="wrap">
+    <a href="#top" class="logo">DANIYAR<span>.</span></a>
+    <div class="menu" id="menu">
+      <a href="#about">Обо мне</a>
+      <a href="#skills">Навыки</a>
+      <a href="#works">Работы</a>
+      <a href="#process">Процесс</a>
+      <a href="#contact">Контакты</a>
+    </div>
+    <a href="https://t.me/Dan_design_wb" target="_blank" rel="noopener" class="btn primary nav-btn">Написать</a>
+    <button class="burger" id="burger" aria-label="Меню">☰</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="tag"><b></b> Открыт для новых проектов</div>
+      <h1>Графический<br>дизайнер, который<br>делает <em>заметно</em></h1>
+      <p>Привет, я Данияр. Создаю айдентику, инфографику и визуал, который привлекает внимание и продаёт. 4 года в профессии, 99+ реализованных проектов.</p>
+      <div class="cta">
+        <a href="#works" class="btn primary">Смотреть работы →</a>
+        <a href="https://t.me/Dan_design_wb" target="_blank" rel="noopener" class="btn ghost">Telegram</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="chip c1">🎨 4 года опыта</div>
+      <div class="frame"><img src="https://i.postimg.cc/yYbgthWv/5361903972412757174-99.jpg" alt="Работа Данияра"></div>
+      <div class="chip c2">✨ 99+ проектов</div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee">
+  <div>
+    <span>Брендинг</span><span>Инфографика</span><span>Digital-дизайн</span><span>Motion-дизайн</span>
+    <span>Брендинг</span><span>Инфографика</span><span>Digital-дизайн</span><span>Motion-дизайн</span>
+  </div>
+</div>
+<main>
+  <section id="about">
+    <div class="wrap about-grid">
+      <div>
+        <div class="sec-head" style="margin-bottom:30px">
+          <small>Обо мне</small>
+          <h2>Дизайн — это не украшение, а решение задачи</h2>
+        </div>
+        <p>Я — <strong>Данияр, графический дизайнер уровня Middle</strong>. Уже около 4 лет я работаю с брендами и предпринимателями: превращаю идеи в понятный, цепляющий визуал.</p>
+        <p>Мне важно, чтобы работа не просто выглядела красиво, а <strong>решала бизнес-задачу</strong>: повышала узнаваемость, конверсию и доверие к бренду.</p>
+        <p>Работаю быстро, на связи, держу сроки и всегда довожу детали до идеала.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><b data-n="4">0</b><span>года в дизайне</span></div>
+        <div class="stat"><b data-n="99" data-plus>0</b><span>завершённых проектов</span></div>
+        <div class="stat"><b data-n="100" data-suffix="%">0</b><span>работ сдано в срок</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head">
+        <small>Навыки</small>
+        <h2>Чем я могу быть полезен</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill"><div class="ico">🧬</div><h3>Оформление профиля в соц сетях</h3><p>Аватарки, шапки, обложки и иконки для актуального: единый стиль, чтобы профиль выглядел цельно и запоминался.</p></div>
+        <div class="skill"><div class="ico">📊</div><h3>Инфографика и карточки</h3><p>Продающие карточки товаров для маркетплейсов, презентации и инфографика, которая читается за секунды.</p></div>
+        <div class="skill"><div class="ico">🔤</div><h3>Рекламные креативы</h3><p>Баннеры и креативы для рекламы в соцсетях и на маркетплейсах: сильный заголовок, композиция и акцент на продукте.</p></div>
+        <div class="skill"><div class="ico">📱</div><h3>Digital и SMM-дизайн</h3><p>Баннеры, обложки, посты и сторис для соцсетей, рекламные креативы под любые площадки.</p></div>
+        <div class="skill"><div class="ico">📦</div><h3>Упаковка и полиграфия</h3><p>Макеты упаковки, визитки, флаеры, каталоги — с учётом требований типографии.</p></div>
+        <div class="skill"><div class="ico">🎬</div><h3>Motion-дизайн</h3><p>Анимированные баннеры, логотипы и короткие ролики, которые оживляют статичный визуал.</p></div>
+      </div>
+      <div class="tools">
+        <span>Adobe Photoshop</span><span>Adobe Illustrator</span><span>After Effects</span>
+        <span>AI-инструменты</span><span>CorelDRAW</span><span>Моушн-дизайн</span><span>Графический и диджитал-дизайн</span>
+        <span>Композиция</span><span>Работа с референсами</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="works">
+    <div class="wrap">
+      <div class="sec-head">
+        <small>Портфолио</small>
+        <h2>Избранные работы</h2>
+      </div>
+      <div class="gallery" id="gallery"></div>
+      <div class="more">
+        <a href="https://postimg.cc/gallery/kbNsPPx" target="_blank" rel="noopener" class="btn ghost">Вся галерея →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <div class="sec-head">
+        <small>Процесс</small>
+        <h2>Как мы будем работать</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><h3>Бриф</h3><p>Обсуждаем задачу, цели, аудиторию и ваши пожелания.</p></div>
+        <div class="step"><h3>Концепт</h3><p>Изучаю нишу, собираю референсы и предлагаю направление.</p></div>
+        <div class="step"><h3>Дизайн</h3><p>Создаю макеты, показываю промежуточные результаты, вношу правки.</p></div>
+        <div class="step"><h3>Сдача</h3><p>Передаю все файлы в нужных форматах и остаюсь на связи.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-box">
+        <h2>Давайте сделаем<br>что-то крутое</h2>
+        <p>Расскажите о своём проекте — отвечу быстро и предложу решение.</p>
+        <div class="cta">
+<a href="https://t.me/Dan_design_wb" target="_blank" rel="noopener" class="btn primary">
+  <i class="fa-brands fa-telegram"></i> Telegram @Dan_design_wb
+</a>
+          <a href="https://www.instagram.com/pomni_imy_moe?rpxt=YmVqM25taHB2aGN0" target="_blank" rel="noopener" class="btn ghost">
+  <i class="fa-brands fa-instagram"></i> Instagram @pomni_imy_moe
+</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year"></span> Данияр. Все права защищены.</span>
+    <span>Графический дизайнер</span>
+  </div>
+</footer>
+
+<div class="lb" id="lb">
+  <button class="x" id="lbX" aria-label="Закрыть">✕</button>
+  <button class="p" id="lbP" aria-label="Назад">←</button>
+  <img id="lbImg" alt="">
+  <button class="n" id="lbN" aria-label="Вперёд">→</button>
+  <div class="cnt" id="lbC"></div>
+</div>
+
+<script>
+// ===== Список работ (прямые ссылки из галереи) =====
+const works = [
+  "https://i.postimg.cc/KYw6RDxd/IMG-20261108-044050-442.jpg",
+  "https://i.postimg.cc/fbpGJfDF/IMG-20261108-044050-452.jpg",
+  "https://i.postimg.cc/rp3BKNqF/IMG-20261108-044050-482.jpg",
+  "https://i.postimg.cc/cJ2prBdx/IMG-20261108-044050-614.jpg",
+  "https://i.postimg.cc/Zq2GCxJt/IMG-20261108-044050-639.jpg",
+  "https://i.postimg.cc/q7SPzx4D/IMG-20261108-044050-781.jpg",
+  "https://i.postimg.cc/VNpxdWzc/IMG-20261108-044050-840.jpg",
+  "https://i.postimg.cc/GpVWHxdV/IMG-20261108-044050-849.jpg",
+  "https://i.postimg.cc/R0ykNL4P/IMG-20261108-044050-906.jpg",
+  "https://i.postimg.cc/CKX3zswS/IMG-20261108-044050-960.jpg",
+  "https://i.postimg.cc/bvZXyBcV/IMG-20261108-044057-690.jpg",
+  "https://i.postimg.cc/wB1KqG8G/IMG-20261108-044057-703.jpg",
+  "https://i.postimg.cc/YSZ5hzMd/IMG-20261108-044057-783.jpg",
+  "https://i.postimg.cc/g0x9zTFN/IMG-20261108-044057-874.jpg",
+  "https://i.postimg.cc/PqCGXRs3/IMG-20261108-044058-012.jpg",
+  "https://i.postimg.cc/FK8M7VNp/IMG-20261108-044058-055.jpg",
+  "https://i.postimg.cc/pdmNW6b1/IMG-20261108-044058-141.jpg",
+  "https://i.postimg.cc/1z8xmjhK/IMG-20261108-044058-171.jpg",
+  "https://i.postimg.cc/yNDq1b4G/IMG-20261108-044058-258.jpg",
+  "https://i.postimg.cc/5tXc4Rds/IMG-20261108-044058-278.jpg",
+  "https://i.postimg.cc/1z8xmjhH/IMG-20261108-044102-993.jpg"
+];
+
+const gallery = document.getElementById('gallery');
+works.forEach((src, i) => {
+  const d = document.createElement('div');
+  d.className = 'work';
+  d.innerHTML = `<img src="${src}" alt="Работа ${i + 1}" loading="lazy">`;
+  d.addEventListener('click', () => openLb(i));
+  gallery.appendChild(d);
+});
+
+// Появление при прокрутке
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); }
+}), { threshold: .08 });
+document.querySelectorAll('.work').forEach(w => io.observe(w));
+
+// Лайтбокс
+const lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'), lbC = document.getElementById('lbC');
+let cur = 0;
+function show() { lbImg.src = works[cur]; lbC.textContent = (cur + 1) + ' / ' + works.length; }
+function openLb(i) { cur = i; show(); lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+function move(d) { cur = (cur + d + works.length) % works.length; show(); }
+document.getElementById('lbX').onclick = closeLb;
+document.getElementById('lbP').onclick = () => move(-1);
+document.getElementById('lbN').onclick = () => move(1);
+lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+document.addEventListener('keydown', e => {
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLb();
+  if (e.key === 'ArrowLeft') move(-1);
+  if (e.key === 'ArrowRight') move(1);
+});
+
+// Счётчики
+const cio = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  const el = e.target, n = +el.dataset.n, plus = 'plus' in el.dataset, suf = el.dataset.suffix || '';
+  let v = 0; const step = Math.max(1, Math.ceil(n / 50));
+  const t = setInterval(() => {
+    v = Math.min(n, v + step);
+    el.textContent = v + (v === n ? (plus ? '+' : suf) : '');
+    if (v === n) clearInterval(t);
+  }, 30);
+  cio.unobserve(el);
+}), { threshold: .5 });
+document.querySelectorAll('[data-n]').forEach(el => cio.observe(el));
+
+// Меню
+const menu = document.getElementById('menu');
+document.getElementById('burger').onclick = () => menu.classList.toggle('open');
+menu.querySelectorAll('a').forEach(a => a.onclick = () => menu.classList.remove('open'));
+
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
